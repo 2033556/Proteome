@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class AcideAmine {
 
-    public enum CodeCouleur {
+    public enum AcideAmines {
         A("Alanine", "Ala", "A"),
         C("Cysteline", "Cys", "C"),
         D("Aspartate", "Asp", "D"),
@@ -29,15 +29,21 @@ public class AcideAmine {
         private final String nomLong;
         private final String nomCourt;
 
-        CodeCouleur(String acideAmine, String nomLong, String nomCourt) {
+        AcideAmines(String acideAmine, String nomLong, String nomCourt) {
 
             this.acideAmine = acideAmine;
             this.nomLong = nomLong;
             this.nomCourt = nomCourt;
         }
     }
-    Map<AcideAmine, Integer> lireAcidesAmines(String sequence){
-        Map<AcideAmine, Integer>map = new HashMap<>();
-        lireAcidesAmines()
+    Map<AcideAmines, Integer> lireAcidesAmines(String sequence){
+        Map<AcideAmines, Integer> map = new HashMap<>();
+        String toutEnString = null;
+        for (int i = 0; i < sequence.length(); i++) {
+            AcideAmines acideAmines = AcideAmines.valueOf(sequence.substring(i, i+1));
+            int nombre = map.getOrDefault(acideAmines, 0);
+            map.put(acideAmines, nombre);
+        }
+        return map;
     }
 }

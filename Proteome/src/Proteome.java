@@ -1,10 +1,9 @@
 public class Proteome {
 
-    public Proteome rechercherNomCourtExact(String nomCourt){
+
+
+    public Proteines rechercherNomCourtExact(String nomCourt) {
 
         return
-    }
-
-
     }
 }

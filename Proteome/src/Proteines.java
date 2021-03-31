@@ -1,7 +1,12 @@
 public class Proteines {
+
     String nomCourt;
 
-    Proteines rechercherNomCourtExact(String nomCourt){
+    public String getNomCourt() {
+        return nomCourt;
+    }
 
+    public void setNomCourt(String nomCourt) {
+        this.nomCourt = nomCourt;
     }
 }

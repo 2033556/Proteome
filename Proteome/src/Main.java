@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args){
 
-
+        Proteome proteome = new Proteome();
         Scanner sc = new Scanner(System.in);
-        String proteine;
+        Proteines proteine;
 
         System.out.println("Bienvenue dans protéome");
         do {
@@ -14,8 +14,11 @@ public class Main {
             System.out.println("Écrivez Q pour quitter");
 
             proteine = sc.nextLine();
+            proteome.ajouterProteine(proteine);
+
         }
-        while (proteine != "Q");
+        while ()
+
 
         sc.close();
     }

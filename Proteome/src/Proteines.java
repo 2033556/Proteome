@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Proteines implements Comparable<Proteines> {
 
     private String nomCourt;
@@ -26,5 +28,18 @@ public class Proteines implements Comparable<Proteines> {
         else  {
             return 0;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Proteines proteines = (Proteines) o;
+        return Objects.equals(nomCourt, proteines.nomCourt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomCourt);
     }
 }

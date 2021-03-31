@@ -4,22 +4,22 @@ public class Main {
 
     public static void main(String[] args){
 
+        Proteines viande = new Proteines("v");
+        Proteines poisson = new Proteines("p");
+        Proteines oeufs = new Proteines("o");
+        Proteines lait = new Proteines("l");
+        Proteines noix = new Proteines("n");
+
         Proteome proteome = new Proteome();
-        Scanner sc = new Scanner(System.in);
-        Proteines proteine;
 
-        System.out.println("Bienvenue dans protéome");
-        do {
-            System.out.println("Veuillez entrer le nom de la protéine recherchée");
-            System.out.println("Écrivez Q pour quitter");
+        proteome.ajouterProteine(viande);
+        proteome.ajouterProteine(poisson);
+        proteome.ajouterProteine(oeufs);
+        proteome.ajouterProteine(lait);
+        proteome.ajouterProteine(noix);
 
-            proteine = sc.nextLine();
-            proteome.ajouterProteine(proteine);
-
-        }
-        while ()
-
-
-        sc.close();
+        System.out.println(proteome.rechercherNomCourtExact("v"));
+        System.out.println(proteome.rechercherNomCourtExact("n"));
+        System.out.println(proteome.rechercherNomCourtExact("k"));
     }
 }

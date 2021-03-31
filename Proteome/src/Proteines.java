@@ -17,6 +17,19 @@ public class Proteines implements Comparable<Proteines> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Proteines proteines = (Proteines) o;
+        return Objects.equals(nomCourt, proteines.nomCourt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomCourt);
+    }
+
+    @Override
     public int compareTo(Proteines o) {
         int delta = nomCourt.compareTo(o.nomCourt);
         if(delta > 0){
@@ -31,15 +44,9 @@ public class Proteines implements Comparable<Proteines> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Proteines proteines = (Proteines) o;
-        return Objects.equals(nomCourt, proteines.nomCourt);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nomCourt);
+    public String toString() {
+        return "Proteines{" +
+                "nomCourt='" + nomCourt + '\'' +
+                '}';
     }
 }

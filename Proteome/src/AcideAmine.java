@@ -1,4 +1,7 @@
-public class AcideAnime {
+import java.util.HashMap;
+import java.util.Map;
+
+public class AcideAmine {
 
     public enum CodeCouleur {
         A("Alanine", "Ala", "A"),
@@ -22,15 +25,19 @@ public class AcideAnime {
         W("Tryptophane", "Trp", "W"),
         Y("Tyrosine", "Tyr", "Y");
 
-        private final String acideAnime;
+        private final String acideAmine;
         private final String nomLong;
         private final String nomCourt;
 
-        CodeCouleur(String acideAnime, String nomLong, String nomCourt) {
+        CodeCouleur(String acideAmine, String nomLong, String nomCourt) {
 
-            this.acideAnime = acideAnime;
+            this.acideAmine = acideAmine;
             this.nomLong = nomLong;
             this.nomCourt = nomCourt;
         }
+    }
+    Map<AcideAmine, Integer> lireAcidesAmines(String sequence){
+        Map<AcideAmine, Integer>map = new HashMap<>();
+        lireAcidesAmines()
     }
 }

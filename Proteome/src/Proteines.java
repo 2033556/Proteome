@@ -1,6 +1,6 @@
-public class Proteines {
+public class Proteines implements Comparable<Proteines> {
 
-    String nomCourt;
+    private String nomCourt;
 
     public String getNomCourt() {
         return nomCourt;
@@ -8,5 +8,10 @@ public class Proteines {
 
     public void setNomCourt(String nomCourt) {
         this.nomCourt = nomCourt;
+    }
+
+    @Override
+    public int compareTo(Proteines o) {
+        if(nomCourt > o.nomCourt
     }
 }

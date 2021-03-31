@@ -12,6 +12,15 @@ public class Proteines implements Comparable<Proteines> {
 
     @Override
     public int compareTo(Proteines o) {
-        if(nomCourt > o.nomCourt
+        nomCourt.compareTo(o.nomCourt);
+        if(nomCourt > o.nomCourt){
+            return -1;
+        }
+        if(nomCourt < o.nomCourt){
+            return 1;
+        }
+        if(nomCourt == o.nomCourt){
+            return 0;
+        }
     }
 }

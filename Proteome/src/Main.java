@@ -12,6 +12,7 @@ public class Main {
         do {
             System.out.println("Veuillez entrer le nom de la protéine recherchée");
             System.out.println("Écrivez Q pour quitter");
+
             proteine = sc.nextLine();
         }
         while (proteine != "Q");

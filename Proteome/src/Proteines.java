@@ -2,6 +2,10 @@ public class Proteines implements Comparable<Proteines> {
 
     private String nomCourt;
 
+    public Proteines(String nomCourt) {
+        this.nomCourt = nomCourt;
+    }
+
     public String getNomCourt() {
         return nomCourt;
     }

@@ -10,7 +10,12 @@ public class Proteome {
 
 
     public Proteines rechercherNomCourtExact(String nomCourt) {
-
-        return null;
+       Proteines proteines = new Proteines(nomCourt);
+       if(proteinesTreeSet.contains(proteines)== true){
+           return proteines;
+       }
+       else{
+           return null;
+       }
     }
 }

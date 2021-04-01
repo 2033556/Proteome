@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,20 @@ public class Main {
 
         System.out.println(proteome.rechercherNomCourtExact("v"));
         System.out.println(proteome.rechercherNomCourtExact("n"));
-        System.out.println(proteome.rechercherNomCourtExact("k"));
+        System.out.println(proteome.rechercherNomCourtExact("k"));//Il sera null car il n'y a pas de k
+
+
+        AcideAmine acideAmine = new AcideAmine();
+        System.out.println(acideAmine.lireAcidesAmines("AAA"));
+        System.out.println(acideAmine.lireAcidesAmines("AACC"));
+        System.out.println(acideAmine.lireAcidesAmines("AADD"));
+        System.out.println(acideAmine.lireAcidesAmines("DDDD"));
+        System.out.println(acideAmine.lireAcidesAmines("ACDEFG"));
+
+
+
+
+
 
 
     }

@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,5 +28,6 @@ class TestProteine {
         assertEquals(pomme,proteome.rechercherNomCourtExact("pomme"));
         assertEquals(null, proteome.rechercherNomCourtExact("ecureuil"));
         assertEquals(humain,proteome.rechercherNomCourtExact("humain"));
+
     }
 }

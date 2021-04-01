@@ -36,13 +36,15 @@ public class AcideAmine {
             this.nomCourt = nomCourt;
         }
     }
-    Map<AcideAmines, Integer> lireAcidesAmines(String sequence){
+
+    Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {
         Map<AcideAmines, Integer> map = new HashMap<>();
-        String toutEnString = null;
         for (int i = 0; i < sequence.length(); i++) {
-            AcideAmines acideAmines = AcideAmines.valueOf(sequence.substring(i, i+1));
-            int nombre = map.getOrDefault(acideAmines, 0);
-            map.put(acideAmines, nombre);
+            if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
+                map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + 1);
+            } else {
+                map.put(AcideAmines.valueOf(sequence.substring(i, i+1)), 1);
+            }
         }
         return map;
     }

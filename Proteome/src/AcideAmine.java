@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AcideAmine {
-
+    // REB : je ne conserverais que l'énum
     public enum AcideAmines {
         A("Alanine", "Ala", "A"),
         C("Cysteline", "Cys", "C"),
@@ -37,6 +37,8 @@ public class AcideAmine {
         }
     }
 
+    // REB : choisissez la visibilité
+    // REB : séquence n'est pas validée
     Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {
         Map<AcideAmines, Integer> map = new HashMap<>();
         for (int i = 0; i < sequence.length(); i++) {

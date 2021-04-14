@@ -37,23 +37,28 @@ public enum AcideAmines {
         this.nomCourt = nomCourt;
     }
 
-    public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {
-        int chiffreSignificatif;
+    public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {//regex pour verifier si c»'est des chiffres soit des des lettres d'acides
+        //QUAND JE RENTRE COMME AVANT ÇA NE FONCTIONNE PLUS :( (EX AAA = (1=A))
+        int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
         Pattern patronSequence = Pattern.compile("^[ACDEFGHIKLMNPQRSTVWY]+$");
         for(int i = 0; i < sequence.length(); i++){
             Matcher matche = patronSequence.matcher(sequence.substring(i, i+1));
             if(!matche.find()) {
-                chiffreSignificatif = Integer.parseInt(sequence.substring(i, i+1));
-                System.out.println(chiffreSignificatif);
-
+                chiffreSignificatif = chiffreSignificatif * 10;
+                chiffreSignificatif += Integer.parseInt(sequence.substring(i, i+1));
             }
-            if(matche.find()){
+            else{
                if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
-                    map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + 1);
+                    map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + chiffreSignificatif);
                 } else {
-                    map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), 1);
+                   if( chiffreSignificatif==0) {
+                       chiffreSignificatif = 1;
+                   }
+                    map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), chiffreSignificatif);
+
                 }
+               chiffreSignificatif = 0;
             }
         }
 

@@ -41,7 +41,7 @@ public class Main {
                 case 'O':
                     System.out.println("Voici la liste des acides aminés");
                         for(AcideAmines acide : AcideAmines.values()){
-                            System.out.print(acide.name() + ",");
+                            System.out.print(acide.name()+ ",");
                         }
                     System.out.println("\n");
 

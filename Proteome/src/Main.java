@@ -13,7 +13,7 @@ public class Main {
 
         do {
             System.out.println("=============================================================");
-            System.out.println("Bienvenue à protéome!");
+            System.out.println("Bienvenue à Protéome!");
             System.out.println("=============================================================");
             System.out.println("[E]ntrer des acides aminés");
             System.out.println("[R]echercher une protéine");
@@ -27,7 +27,6 @@ public class Main {
                 case 'E':
                     System.out.println("Entrez une chaîne représentant une liste d’acides aminés");
                     chaine1 = sc.next().toUpperCase();
-
                     System.out.println(AcideAmines.lireAcidesAmines(chaine1));
 
                     break;
@@ -40,12 +39,15 @@ public class Main {
                     break;
 
                 case 'O':
-
+                    System.out.println("Voici la liste des acides aminés");
+                        for(AcideAmines acide : AcideAmines.values()){
+                            System.out.print(acide.name() + ",");
+                        }
+                    System.out.println("\n");
 
                     break;
 
                 case 'Q':
-
                     break;
 
                 default:

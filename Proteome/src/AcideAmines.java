@@ -54,4 +54,5 @@ public enum AcideAmines {
         }
         return map;
     }
+
 }

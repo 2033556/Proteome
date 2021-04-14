@@ -38,12 +38,28 @@ public enum AcideAmines {
     }
 
     public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {
-        Pattern patronSequence = Pattern.compile("^[ACDEFGHIKLMNPQRSTVWY]+$");
-
-        Matcher matche = patronSequence.matcher(sequence);
-
+        int chiffreSignificatif;
         Map<AcideAmines, Integer> map = new HashMap<>();
-        if (matche.find()) {
+        Pattern patronSequence = Pattern.compile("^[ACDEFGHIKLMNPQRSTVWY]+$");
+        for(int i = 0; i < sequence.length(); i++){
+            Matcher matche = patronSequence.matcher(sequence.substring(i, i+1));
+            if(!matche.find()) {
+                chiffreSignificatif = Integer.parseInt(sequence.substring(i, i+1));
+                System.out.println(chiffreSignificatif);
+
+            }
+            if(matche.find()){
+               if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
+                    map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + 1);
+                } else {
+                    map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), 1);
+                }
+            }
+        }
+
+
+
+        /*if (matche.find()) {
             for (int i = 0; i < sequence.length(); i++) {
                 if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
                     map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + 1);
@@ -51,7 +67,7 @@ public enum AcideAmines {
                     map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), 1);
                 }
             }
-        }
+        }*/
         return map;
     }
 

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TestProteine {
 
     @Test
-    void testProteine(){
+    void testProteine() {
         Proteome proteome = new Proteome();
 
         Proteines cochon = new Proteines("cochon");
@@ -24,10 +24,10 @@ class TestProteine {
         assertEquals(cochon, proteome.rechercherNomCourtExact("cochon"));
         assertEquals(null, proteome.rechercherNomCourtExact("patate"));
         assertEquals(vache, proteome.rechercherNomCourtExact("vache"));
-        assertEquals(tulipe,proteome.rechercherNomCourtExact("tulipe"));
-        assertEquals(pomme,proteome.rechercherNomCourtExact("pomme"));
+        assertEquals(tulipe, proteome.rechercherNomCourtExact("tulipe"));
+        assertEquals(pomme, proteome.rechercherNomCourtExact("pomme"));
         assertEquals(null, proteome.rechercherNomCourtExact("ecureuil"));
-        assertEquals(humain,proteome.rechercherNomCourtExact("humain"));
+        assertEquals(humain, proteome.rechercherNomCourtExact("humain"));
 
     }
 }

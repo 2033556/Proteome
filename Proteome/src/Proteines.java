@@ -31,16 +31,7 @@ public class Proteines implements Comparable<Proteines> {
 
     @Override
     public int compareTo(Proteines o) {
-        int delta = nomCourt.compareTo(o.nomCourt);
-        if(delta > 0){
-            return -1;
-        }
-        if(delta < 0){
-            return 1;
-        }
-        else  {
-            return 0;
-        }
+        return nomCourt.compareTo(o.nomCourt);
     }
 
     @Override

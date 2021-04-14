@@ -3,39 +3,44 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Proteines viande = new Proteines("v");
-        Proteines poisson = new Proteines("p");
-        Proteines oeufs = new Proteines("o");
-        Proteines lait = new Proteines("l");
-        Proteines noix = new Proteines("n");
+        Scanner sc = new Scanner(System.in);
+        char choix;
 
-        Proteome proteome = new Proteome();
+        System.out.println("[E]ntrer des acides aminés");
+        System.out.println("[R]echercher une protéine");
+        System.out.println("[O]btenir la liste des acides aminés");
+        System.out.println("[Q]uitter");
+        choix = sc.next().toUpperCase().charAt(0);
 
-        proteome.ajouterProteine(viande);
-        proteome.ajouterProteine(poisson);
-        proteome.ajouterProteine(oeufs);
-        proteome.ajouterProteine(lait);
-        proteome.ajouterProteine(noix);
+        switch (choix){
 
-        System.out.println(proteome.rechercherNomCourtExact("v"));
-        System.out.println(proteome.rechercherNomCourtExact("n"));
-        System.out.println(proteome.rechercherNomCourtExact("k"));//Il sera null car il n'y a pas de k
+            case 'E':
+                System.out.println("Entrez une chaîne représentant une liste d’acides aminés");
 
+                break;
 
-        AcideAmine acideAmine = new AcideAmine();
-        System.out.println(acideAmine.lireAcidesAmines("AAA"));
-        System.out.println(acideAmine.lireAcidesAmines("AACC"));
-        System.out.println(acideAmine.lireAcidesAmines("AADD"));
-        System.out.println(acideAmine.lireAcidesAmines("DDDD"));
-        System.out.println(acideAmine.lireAcidesAmines("ACDEFG"));
+            case 'R':
+                System.out.println("Entrez une chaîne de charactère représentant une protéine");
 
 
+                break;
+
+            case 'O':
 
 
+                break;
 
+            case 'Q':
+                sc.close();
 
+                break;
 
+            default:
+                System.out.println("Choix introuvable");
+        }
+
+        sc.close();
     }
 }

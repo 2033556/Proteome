@@ -42,23 +42,22 @@ public enum AcideAmines {
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
         Pattern patronSequence = Pattern.compile("^[ACDEFGHIKLMNPQRSTVWY]+$");
-        for(int i = 0; i < sequence.length(); i++){
-            Matcher matche = patronSequence.matcher(sequence.substring(i, i+1));
-            if(!matche.find()) {
+        for (int i = 0; i < sequence.length(); i++) {
+            Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
+            if (!matche.find()) {
                 chiffreSignificatif = chiffreSignificatif * 10;
-                chiffreSignificatif += Integer.parseInt(sequence.substring(i, i+1));
-            }
-            else{
-               if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
+                chiffreSignificatif += Integer.parseInt(sequence.substring(i, i + 1));
+            } else {
+                if (chiffreSignificatif == 0) {
+                    chiffreSignificatif = 1;
+                }
+                if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
                     map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + chiffreSignificatif);
                 } else {
-                   if( chiffreSignificatif==0) {
-                       chiffreSignificatif = 1;
-                   }
                     map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), chiffreSignificatif);
 
                 }
-               chiffreSignificatif = 0;
+                chiffreSignificatif = 0;
             }
         }
 

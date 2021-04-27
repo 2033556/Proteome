@@ -11,9 +11,10 @@ public class Main {
         String chaine1;
         Proteines chaine2;
 
+        System.out.println("=============================================================");
+        System.out.println("Bienvenue à Protéome!");
+
         do {
-            System.out.println("=============================================================");
-            System.out.println("Bienvenue à Protéome!");
             System.out.println("=============================================================");
             System.out.println("[E]ntrer des acides aminés");
             System.out.println("[R]echercher une protéine");
@@ -41,7 +42,7 @@ public class Main {
                 case 'O':
                     System.out.println("Voici la liste des acides aminés");
                         for(AcideAmines acide : AcideAmines.values()){
-                            System.out.print(acide.name()+ ",");
+                            System.out.print(acide.name() + ",");
                         }
                     System.out.println("\n");
 

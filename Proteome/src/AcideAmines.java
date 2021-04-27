@@ -41,14 +41,14 @@ public enum AcideAmines {
         //QUAND JE RENTRE COMME AVANT ÇA NE FONCTIONNE PLUS :( (EX AAA = (1=A))
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
-        Pattern patronSequence = Pattern.compile("^[ACDEFGHIKLMNPQRSTVWY]+$");
+        Pattern patronSequence = Pattern.compile("(([ACDEFGHIKLMNPQRSTVWY][1-9]+ | [1-9]+[ACDEFGHIKLMNPQRSTVWY])*[^0-9])+$");
         for (int i = 0; i < sequence.length(); i++) {
             Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
             if (!matche.find()) {
                 chiffreSignificatif = chiffreSignificatif * 10;
                 chiffreSignificatif += Integer.parseInt(sequence.substring(i, i + 1));
             } else {
-                if (chiffreSignificatif == 0) {
+                if (chiffreSignificatif == 0)
                     chiffreSignificatif = 1;
                 }
                 if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {

@@ -36,11 +36,11 @@ public enum AcideAmines {
         this.nomLong = nomLong;
         this.nomCourt = nomCourt;
     }
-
+//
     public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {//regex pour verifier si c»'est des chiffres soit des des lettres d'acides
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
-        Pattern patronSequence = Pattern.compile("^[ACDEFGHIKLMNPQRSTVWY]+$");
+        Pattern patronSequence = Pattern.compile("([1-9][0-9]*)*[ACDEFGHIKLMNPQRSTVWY]+$");
         for (int i = 0; i < sequence.length(); i++) {
             Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
             if (!matche.find()) {

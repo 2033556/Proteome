@@ -36,12 +36,15 @@ public enum AcideAmines {
         this.nomLong = nomLong;
         this.nomCourt = nomCourt;
     }
-//
-    public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {//regex pour verifier si c»'est des chiffres soit des des lettres d'acides
+
+    public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) throws IllegalArgumentException {
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
-        Pattern patronSequence = Pattern.compile("([1-9][0-9]*)*[ACDEFGHIKLMNPQRSTVWY]+$");
+        Pattern lettresEtChiffres = Pattern.compile("^(([1-9][0-9]*)*[ACDEFGHIKLMNPQRSTVWY]+)*$");
+        Matcher matcheChiffreEtLetrre = lettresEtChiffres.matcher(sequence);
+        if (matcheChiffreEtLetrre.find()){
         for (int i = 0; i < sequence.length(); i++) {
+            Pattern patronSequence = Pattern.compile("[ACDEFGHIKLMNPQRSTVWY]");
             Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
             if (!matche.find()) {
                 chiffreSignificatif = chiffreSignificatif * 10;
@@ -58,20 +61,10 @@ public enum AcideAmines {
                 }
                 chiffreSignificatif = 0;
             }
+        }return map;
+        } else{
+            throw new IllegalArgumentException("La string entrée n'est pas valide");
         }
-
-
-
-        /*if (matche.find()) {
-            for (int i = 0; i < sequence.length(); i++) {
-                if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
-                    map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + 1);
-                } else {
-                    map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), 1);
-                }
-            }
-        }*/
-        return map;
     }
 
 }

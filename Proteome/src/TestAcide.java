@@ -15,6 +15,10 @@ class TestAcide {
         acideAminesIntegerHashMap.put(AcideAmines.R, 2);
         acideAminesIntegerHashMap.put(AcideAmines.D, 1);
 
-        assertEquals(acideAminesIntegerHashMap, AcideAmines.lireAcidesAmines("AARRDA"));
+        try {
+            assertEquals(acideAminesIntegerHashMap, AcideAmines.lireAcidesAmines("AARRDA"));
+        } catch (IllegalArgumentException illegalArgumentException) {
+            illegalArgumentException.printStackTrace();
+        }
     }
 }

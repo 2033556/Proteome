@@ -13,7 +13,6 @@ public class Main {
 
         System.out.println("=============================================================");
         System.out.println("Bienvenue à Protéome!");
-
         do {
             System.out.println("=============================================================");
             System.out.println("[E]ntrer des acides aminés");
@@ -26,9 +25,13 @@ public class Main {
             switch (choix) {
 
                 case 'E':
+                    try {
                     System.out.println("Entrez une chaîne représentant une liste d’acides aminés");
                     chaine1 = sc.next().toUpperCase();
                     System.out.println(AcideAmines.lireAcidesAmines(chaine1));
+                    }catch (IllegalArgumentException illegalArgumentException){
+                        illegalArgumentException.printStackTrace();
+                    }
 
                     break;
 
@@ -52,7 +55,12 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Choix introuvable");
+                    try {
+                        throw new IllegalArgumentException("Séquence invalide");
+                    }catch (IllegalArgumentException illegalArgumentException){
+                        illegalArgumentException.printStackTrace();
+                    }
+
             }
         }
         while (choix != 'Q');

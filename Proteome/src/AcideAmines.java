@@ -37,34 +37,38 @@ public enum AcideAmines {
         this.nomCourt = nomCourt;
     }
 
+    public String rechercherUneProteine() {
+        return "Nom court: " +nomCourt + ", nom long: " + nomLong + ", acide amine: " + acideAmine;
+    }
+
     public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) throws IllegalArgumentException {
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
         Pattern lettresEtChiffres = Pattern.compile("^(([1-9][0-9]*)*[ACDEFGHIKLMNPQRSTVWY]+)*$");
         Matcher matcheChiffreEtLetrre = lettresEtChiffres.matcher(sequence);
-        if (matcheChiffreEtLetrre.find()){
-        for (int i = 0; i < sequence.length(); i++) {
-            Pattern patronSequence = Pattern.compile("[ACDEFGHIKLMNPQRSTVWY]");
-            Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
-            if (!matche.find()) {
-                chiffreSignificatif = chiffreSignificatif * 10;
-                chiffreSignificatif += Integer.parseInt(sequence.substring(i, i + 1));
-            } else {
-                if (chiffreSignificatif == 0) {
-                    chiffreSignificatif = 1;
-                }
-                if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
-                    map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + chiffreSignificatif);
+        if (matcheChiffreEtLetrre.find()) {
+            for (int i = 0; i < sequence.length(); i++) {
+                Pattern patronSequence = Pattern.compile("[ACDEFGHIKLMNPQRSTVWY]");
+                Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
+                if (!matche.find()) {
+                    chiffreSignificatif = chiffreSignificatif * 10;
+                    chiffreSignificatif += Integer.parseInt(sequence.substring(i, i + 1));
                 } else {
-                    map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), chiffreSignificatif);
+                    if (chiffreSignificatif == 0) {
+                        chiffreSignificatif = 1;
+                    }
+                    if (map.containsKey(AcideAmines.valueOf(sequence.substring(i, i + 1)))) {
+                        map.replace(AcideAmines.valueOf(sequence.substring(i, i + 1)), map.get(AcideAmines.valueOf(sequence.substring(i, i + 1))) + chiffreSignificatif);
+                    } else {
+                        map.put(AcideAmines.valueOf(sequence.substring(i, i + 1)), chiffreSignificatif);
 
+                    }
+                    chiffreSignificatif = 0;
                 }
-                chiffreSignificatif = 0;
             }
-        }return map;
-        } else{
+            return map;
+        } else {
             throw new IllegalArgumentException("La string entrée n'est pas valide");
         }
     }
-
 }

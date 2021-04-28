@@ -38,9 +38,11 @@ public enum AcideAmines {
     }
 
     public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) {//regex pour verifier si c»'est des chiffres soit des des lettres d'acides
+        //QUAND JE RENTRE COMME AVANT ÇA NE FONCTIONNE PLUS :( (EX AAA = (1=A))
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
-        Pattern patronSequence = Pattern.compile("(([ACDEFGHIKLMNPQRSTVWY][1-9]+ | [1-9]+[ACDEFGHIKLMNPQRSTVWY])*[^0-9])+$");
+        Pattern patronSequence = Pattern.compile("([1-9][0-9]*)*[ACDEFGHIKLMNPQRSTVWY]+$");
+
         for (int i = 0; i < sequence.length(); i++) {
             Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
             if (!matche.find()) {
@@ -58,6 +60,7 @@ public enum AcideAmines {
                 }
                 chiffreSignificatif = 0;
             }
+        return map;
         }
 
 
@@ -71,7 +74,6 @@ public enum AcideAmines {
                 }
             }
         }*/
-        return map;
+        //return map;
     }
 
-}

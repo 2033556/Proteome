@@ -26,11 +26,9 @@ public enum AcideAmines {
     U("Sec", "Sélénocystéine", "U"),
     V("Valine", "Val", "V"),
     W("Tryptophane", "Trp", "W"),
-    O("Pyrrolysine", "Pyl", "O"),
-    U("Sélénocystéine", "Sec", "U"),
     Y("Tyrosine", "Tyr", "Y");
 
-//TEST
+
 
     private final String acideAmine;
     private final String nomLong;

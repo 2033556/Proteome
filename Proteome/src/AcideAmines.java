@@ -24,6 +24,8 @@ public enum AcideAmines {
     T("Threonine", "Thr", "T"),
     V("Valine", "Val", "V"),
     W("Tryptophane", "Trp", "W"),
+    O("Pyrrolysine", "Pyl", "O"),
+    U("Sélénocystéine", "Sec", "U"),
     Y("Tyrosine", "Tyr", "Y");
 
     private final String acideAmine;

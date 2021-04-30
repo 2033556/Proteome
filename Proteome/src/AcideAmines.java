@@ -17,14 +17,18 @@ public enum AcideAmines {
     L("Leucine", "Leu", "L"),
     M("Methionine", "Met", "M"),
     N("Asparagine", "Asn", "N"),
+    O("Pyl", "Pyrrolysine", "O"),
     P("Proline", "Pro", "P"),
     Q("Glutamine", "Glu", "Q"),
     R("Arginine", "Arg", "R"),
     S("Serine", "Ser", "S"),
     T("Threonine", "Thr", "T"),
+    U("Sec", "Sélénocystéine", "U"),
     V("Valine", "Val", "V"),
     W("Tryptophane", "Trp", "W"),
     Y("Tyrosine", "Tyr", "Y");
+
+//TEST
 
     private final String acideAmine;
     private final String nomLong;
@@ -44,11 +48,11 @@ public enum AcideAmines {
     public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) throws IllegalArgumentException {
         int chiffreSignificatif = 0;
         Map<AcideAmines, Integer> map = new HashMap<>();
-        Pattern lettresEtChiffres = Pattern.compile("^(([1-9][0-9]*)*[ACDEFGHIKLMNPQRSTVWY]+)*$");
+        Pattern lettresEtChiffres = Pattern.compile("^(([1-9][0-9]*)*[ACDEFGHIKLMNOPQRSTUVWY]+)*$");
         Matcher matcheChiffreEtLetrre = lettresEtChiffres.matcher(sequence);
         if (matcheChiffreEtLetrre.find()) {
             for (int i = 0; i < sequence.length(); i++) {
-                Pattern patronSequence = Pattern.compile("[ACDEFGHIKLMNPQRSTVWY]");
+                Pattern patronSequence = Pattern.compile("[ACDEFGHIKLMNOPQRSTUVWY]");
                 Matcher matche = patronSequence.matcher(sequence.substring(i, i + 1));
                 if (!matche.find()) {
                     chiffreSignificatif = chiffreSignificatif * 10;

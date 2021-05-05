@@ -54,10 +54,6 @@ public class Proteines implements Comparable<Proteines> {
 
     @Override
     public String toString() {
-        return "Proteines{" +
-                "nomCourt='" + nomCourt + '\'' +
-                ", nomLong='" + nomLong + '\'' +
-                ", sequence='" + sequence + '\'' +
-                '}';
+        return "Voici votre protéines" + "\n" + "Nom court: " + nomCourt + "\n" + "Nom long: " + nomLong + "\n" + "Sequence: " + sequence;
     }
 }

@@ -13,9 +13,8 @@ import java.io.IOException;
 
 public class LecteurXml {
     private String fichier;
-
-
-    public Proteome lireFichier(String fichier) {
+    public  Proteome lireFichier() {
+        Proteome p = new Proteome();
         try {
             File fXmlFile = new File("humain.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -28,12 +27,14 @@ public class LecteurXml {
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
                     Proteines proteines = new Proteines(eElement.getElementsByTagName("name").item(0).getTextContent());
-                    proteines.set
+                    proteines.setNomLong(eElement.getElementsByTagName("fullName").item(0).getTextContent());
+                    proteines.setSequence(eElement.getElementsByTagName("sequence").item(0).getTextContent());
+                    p.ajouterProteine(proteines);
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return
+        return p;
     }
 }

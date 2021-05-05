@@ -1,5 +1,6 @@
 import java.sql.SQLOutput;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +11,9 @@ public class Main {
         char choix;
         String chaine1;
         Proteines chaine2;
-        
+        LecteurXml lecteurXml = new LecteurXml();
+        Proteome p = lecteurXml.lireFichier();
+
 
         System.out.println("=============================================================");
         System.out.println("Bienvenue à Protéome!");
@@ -20,7 +23,7 @@ public class Main {
             System.out.println("[R]echercher une protéine");
             System.out.println("[O]btenir la liste des acides aminés");
             System.out.println("[Q]uitter");
-            choix = sc.next().toUpperCase().charAt(0);
+            choix = sc.nextLine().toUpperCase().charAt(0);
 
 
             switch (choix) {
@@ -28,7 +31,7 @@ public class Main {
                 case 'E':
                     try {
                     System.out.println("Entrez une chaîne représentant une liste d’acides aminés");
-                    chaine1 = sc.next().toUpperCase();
+                    chaine1 = sc.nextLine().toUpperCase();
                     System.out.println(AcideAmines.lireAcidesAmines(chaine1));
                     }catch (IllegalArgumentException illegalArgumentException){
                         illegalArgumentException.printStackTrace();
@@ -38,8 +41,9 @@ public class Main {
 
                 case 'R':
                     System.out.println("Entrez une chaîne de charactère représentant une protéine");
-
-                    Proteome proteome = new Proteome();
+                    chaine1 = sc.nextLine();
+                    List<Proteines> proteines = p.rechercherNomCourtExact(chaine1);
+                    System.out.println(proteines);
 
                     break;
 

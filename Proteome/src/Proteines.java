@@ -2,7 +2,25 @@ import java.util.Objects;
 
 public class Proteines implements Comparable<Proteines> {
 
-    private String nomCourt;
+    private String nomCourt;//Name
+    private String nomLong;//fullname
+    private String sequence;//sequence
+
+    public String getNomLong() {
+        return nomLong;
+    }
+
+    public void setNomLong(String nomLong) {
+        this.nomLong = nomLong;
+    }
+
+    public String getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
+    }
 
     public Proteines(String nomCourt) {
         this.nomCourt = nomCourt;
@@ -38,6 +56,8 @@ public class Proteines implements Comparable<Proteines> {
     public String toString() {
         return "Proteines{" +
                 "nomCourt='" + nomCourt + '\'' +
+                ", nomLong='" + nomLong + '\'' +
+                ", sequence='" + sequence + '\'' +
                 '}';
     }
 }

@@ -34,12 +34,11 @@ Proteome {
     public List<Proteines> rechercherSequence(String sequence){
         List<Proteines> proteinesList = new ArrayList<>();
         Map<AcideAmines, Integer> mapSequenceUtilisateur = AcideAmines.lireAcidesAmines(sequence);
-
         for(Proteines proteines:proteinesTreeSet){
             Map<AcideAmines, Integer> mapSequenceProteine = AcideAmines.lireAcidesAmines(proteines.getSequence());
             for(AcideAmines acideAmines:mapSequenceProteine.keySet()){
-                int nbsAcide = mapSequenceUtilisateur.get(acideAmines);
-                if(nbsAcide > a)
+                int nbsAcideProt = mapSequenceProteine.getOrDefault(acideAmines, 0);
+                int nbsAcideUtilisateur = mapSequenceUtilisateur.getOrDefault(acideAmines, 0);
                 }
 
             }

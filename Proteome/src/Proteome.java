@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 
 public class
@@ -29,5 +30,23 @@ Proteome {
             }
         }
         return proteinesList;
+    }
+    public List<Proteines> rechercherSequence(String sequence){
+        List<Proteines> proteinesList = new ArrayList<>();
+        Map<AcideAmines, Integer> mapSequenceUtilisateur = AcideAmines.lireAcidesAmines(sequence);
+
+        for(Proteines proteines:proteinesTreeSet){
+            Map<AcideAmines, Integer> mapSequenceProteine = AcideAmines.lireAcidesAmines(proteines.getSequence());
+            for(AcideAmines acideAmines:mapSequenceProteine.keySet()){
+                int nbsAcide = mapSequenceUtilisateur.get(acideAmines);
+                if(nbsAcide > a)
+                }
+
+            }
+
+                proteinesList.add(proteines);
+
+        }
+     return proteinesList;
     }
 }

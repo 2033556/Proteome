@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Proteines implements Comparable<Proteines> {
@@ -5,6 +6,7 @@ public class Proteines implements Comparable<Proteines> {
     private String nomCourt;//Name
     private String nomLong;//fullname
     private String sequence;//sequence
+    private HashMap<AcideAmines, Integer> hashMap;
 
     public String getNomLong() {
         return nomLong;
@@ -54,6 +56,6 @@ public class Proteines implements Comparable<Proteines> {
 
     @Override
     public String toString() {
-        return "Voici votre protéines" + "\n" + "Nom court: " + nomCourt + "\n" + "Nom long: " + nomLong + "\n" + "Sequence: " + sequence;
+        return "Voici votre protéines" + "\n" + "Nom court: " + nomCourt + "\n" + "Nom long: " + nomLong + "\n" + "Sequence: " + sequence + "\n";
     }
 }

@@ -31,20 +31,24 @@ Proteome {
         }
         return proteinesList;
     }
+    public boolean assezOuPasAssez(Map<AcideAmines, Integer> mapSequenceUtilisateur, Map<AcideAmines,Integer> mapSequenceProteine) {
+        for (AcideAmines acideAmines : mapSequenceProteine.keySet()) {
+            int nbsAcideProt = mapSequenceProteine.getOrDefault(acideAmines, 0);
+            int nbsAcideUtilisateur = mapSequenceUtilisateur.getOrDefault(acideAmines, 0);
+            if (nbsAcideProt > nbsAcideUtilisateur) {
+                return false;
+            }
+        }
+        return true;
+    }
     public List<Proteines> rechercherSequence(String sequence){
         List<Proteines> proteinesList = new ArrayList<>();
         Map<AcideAmines, Integer> mapSequenceUtilisateur = AcideAmines.lireAcidesAmines(sequence);
         for(Proteines proteines:proteinesTreeSet){
             Map<AcideAmines, Integer> mapSequenceProteine = AcideAmines.lireAcidesAmines(proteines.getSequence());
-            for(AcideAmines acideAmines:mapSequenceProteine.keySet()){
-                int nbsAcideProt = mapSequenceProteine.getOrDefault(acideAmines, 0);
-                int nbsAcideUtilisateur = mapSequenceUtilisateur.getOrDefault(acideAmines, 0);
-                }
-
-            }
-
+            if (assezOuPasAssez(mapSequenceUtilisateur, mapSequenceProteine)){
                 proteinesList.add(proteines);
-
+            }
         }
      return proteinesList;
     }

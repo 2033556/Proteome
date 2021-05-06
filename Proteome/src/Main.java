@@ -10,7 +10,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         char choix;
         String chaine1;
-        Proteines chaine2;
         LecteurXml lecteurXml = new LecteurXml();
         Proteome p = lecteurXml.lireFichier();
 
@@ -30,9 +29,10 @@ public class Main {
 
                 case 'E':
                     try {
-                    System.out.println("Entrez une chaîne représentant une liste d’acides aminés");
-                    chaine1 = sc.nextLine().toUpperCase();
-                    System.out.println(AcideAmines.lireAcidesAmines(chaine1));
+                        System.out.println("Entrez une chaîne représentant une liste d’acides aminés");
+                        chaine1 = sc.nextLine().toUpperCase();
+                        System.out.println("Voici les protéines qui peuvent être synthétisées à partir de ces acides aminés");
+                        System.out.println(p.rechercherSequence(chaine1));
                     }catch (IllegalArgumentException illegalArgumentException){
                         illegalArgumentException.printStackTrace();
                     }

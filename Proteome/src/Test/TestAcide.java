@@ -1,3 +1,6 @@
+package Test;
+
+import Utilitaires.AcideAmines;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +19,7 @@ class TestAcide {
         acideAminesIntegerHashMap.put(AcideAmines.D, 1);
 
         try {
-            assertEquals(acideAminesIntegerHashMap, AcideAmines.lireAcidesAmines("AARRDA"));
+            Assertions.assertEquals(acideAminesIntegerHashMap, AcideAmines.lireAcidesAmines("AARRDA"));
         } catch (IllegalArgumentException illegalArgumentException) {
             illegalArgumentException.printStackTrace();
         }

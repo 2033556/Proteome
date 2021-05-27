@@ -1,9 +1,9 @@
+package Test;
+
+import Utilitaires.Proteines;
+import Utilitaires.Proteome;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRecherche {
 
@@ -22,9 +22,9 @@ public class TestRecherche {
         proteome.ajouterProteine(proteines3);
         proteome.ajouterProteine(proteines4);
 
-        assertEquals(proteines1, proteome.rechercherNomCourtExact("NTAS1_HUMAN").get(0));
-        assertEquals(proteines2, proteome.rechercherNomCourtExact("Phospholipase A-2-activating protein").get(0));
-        assertEquals(proteines3, proteome.rechercherNomCourtExact("NACC1_HUMAN").get(0));
-        assertEquals(proteines4, proteome.rechercherNomCourtExact("Calcium-independent phospholipase A2-gamma").get(0));
+        Assertions.assertEquals(proteines1, proteome.rechercherNomCourtExact("NTAS1_HUMAN").get(0));
+        Assertions.assertEquals(proteines2, proteome.rechercherNomCourtExact("Phospholipase A-2-activating protein").get(0));
+        Assertions.assertEquals(proteines3, proteome.rechercherNomCourtExact("NACC1_HUMAN").get(0));
+        Assertions.assertEquals(proteines4, proteome.rechercherNomCourtExact("Calcium-independent phospholipase A2-gamma").get(0));
     }
 }

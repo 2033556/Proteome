@@ -1,3 +1,5 @@
+package Utilitaires;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -29,7 +31,6 @@ public enum AcideAmines {
     Y("Tyrosine", "Tyr", "Y");
 
 
-
     private final String acideAmine;
     private final String nomLong;
     private final String nomCourt;
@@ -42,7 +43,7 @@ public enum AcideAmines {
     }
 
     public String rechercherUneProteine() {
-        return "Nom court: " +nomCourt + ", nom long: " + nomLong + ", acide amine: " + acideAmine;
+        return "Nom court: " + nomCourt + ", nom long: " + nomLong + ", acide amine: " + acideAmine;
     }
 
     public static Map<AcideAmines, Integer> lireAcidesAmines(String sequence) throws IllegalArgumentException {

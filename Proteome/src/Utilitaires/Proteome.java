@@ -1,3 +1,5 @@
+package Utilitaires;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,16 +24,18 @@ Proteome {
             return rechercherNomLong(nomCourt);
         }
     }
-    public List<Proteines> rechercherNomLong(String string){
+
+    public List<Proteines> rechercherNomLong(String string) {
         List<Proteines> proteinesList = new ArrayList<>();
-        for(Proteines proteines:proteinesTreeSet){
-            if(proteines.getNomLong().contains(string)){
+        for (Proteines proteines : proteinesTreeSet) {
+            if (proteines.getNomLong().contains(string)) {
                 proteinesList.add(proteines);
             }
         }
         return proteinesList;
     }
-    public boolean assezOuPasAssez(Map<AcideAmines, Integer> mapSequenceUtilisateur, Map<AcideAmines,Integer> mapSequenceProteine) {
+
+    public boolean assezOuPasAssez(Map<AcideAmines, Integer> mapSequenceUtilisateur, Map<AcideAmines, Integer> mapSequenceProteine) {
         for (AcideAmines acideAmines : mapSequenceProteine.keySet()) {
             int nbsAcideProt = mapSequenceProteine.getOrDefault(acideAmines, 0);
             int nbsAcideUtilisateur = mapSequenceUtilisateur.getOrDefault(acideAmines, 0);
@@ -41,15 +45,16 @@ Proteome {
         }
         return true;
     }
-    public List<Proteines> rechercherSequence(String sequence){
+
+    public List<Proteines> rechercherSequence(String sequence) {
         List<Proteines> proteinesList = new ArrayList<>();
         Map<AcideAmines, Integer> mapSequenceUtilisateur = AcideAmines.lireAcidesAmines(sequence);
-        for(Proteines proteines:proteinesTreeSet){
+        for (Proteines proteines : proteinesTreeSet) {
             Map<AcideAmines, Integer> mapSequenceProteine = AcideAmines.lireAcidesAmines(proteines.getSequence());
-            if (assezOuPasAssez(mapSequenceUtilisateur, mapSequenceProteine)){
+            if (assezOuPasAssez(mapSequenceUtilisateur, mapSequenceProteine)) {
                 proteinesList.add(proteines);
             }
         }
-     return proteinesList;
+        return proteinesList;
     }
 }

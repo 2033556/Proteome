@@ -1,0 +1,15 @@
+1) Comment est stocké une protéine?
+Les protéines sont dans un treeset dans la classe protéome.
+
+2) Comment est chargé et stocké un protéome?
+Le protéome est stocké d'un treeset de protéines et est chargé par ma classe LecteurXml.
+
+3) Comment la chaînes d’acides aminées entrée par l’utilisateur est-elle validée?
+Ell est validée par une regex.
+
+4) Comment faire pour savoir si une protéine est synthétisable à partir d’une chaîne?
+On compare la chaîne entrée par l'utilisateur à le "entry" de la protéine. On imprime tout ce qui est faisable avec la chaîne entrée.
+
+5) Comment rechercher une protéine par son nom complet ou partiel?
+On regarde la chaine entrée par l'utilisateur, ensuite on regarde dans le fichier si la chaîne est présente,
+ils sont ajouté à une liste qui est imprimée par la suite.

@@ -24,13 +24,11 @@ class TestProteine {
         proteome.ajouterProteine(pomme);
         proteome.ajouterProteine(humain);
 
-        Assertions.assertEquals(cochon, proteome.rechercherNomCourtExact("cochon"));
-        Assertions.assertEquals(null, proteome.rechercherNomCourtExact("patate"));
-        Assertions.assertEquals(vache, proteome.rechercherNomCourtExact("vache"));
-        Assertions.assertEquals(tulipe, proteome.rechercherNomCourtExact("tulipe"));
-        Assertions.assertEquals(pomme, proteome.rechercherNomCourtExact("pomme"));
-        Assertions.assertEquals(null, proteome.rechercherNomCourtExact("ecureuil"));
-        Assertions.assertEquals(humain, proteome.rechercherNomCourtExact("humain"));
+        Assertions.assertEquals(cochon, proteome.rechercherNomCourtExact("cochon").get(0));
+        Assertions.assertEquals(vache, proteome.rechercherNomCourtExact("vache").get(0));
+        Assertions.assertEquals(tulipe, proteome.rechercherNomCourtExact("tulipe").get(0));
+        Assertions.assertEquals(pomme, proteome.rechercherNomCourtExact("pomme").get(0));
+        Assertions.assertEquals(humain, proteome.rechercherNomCourtExact("humain").get(0));
 
     }
 }

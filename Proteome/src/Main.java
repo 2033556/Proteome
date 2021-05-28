@@ -24,7 +24,7 @@ public class Main {
         System.out.println("Bienvenue à Protéome!");
         System.out.println("Quel fichier voulez-vous lire aujourd'hui?|| chien.xml | chimpanze.xml | humain.xml | sarscov.xml | theier.xml | variole.xml |");
         choixFichier = sc2.next();
-        Pattern nomDeFichier = Pattern.compile("[chien.xml]|[humain.xml]|[sarscov.xml]|[theier.xml]|[variole.xml]|[chimpanze.xml]");
+        Pattern nomDeFichier = Pattern.compile("chien.xml|humain.xml|sarscov.xml|theier.xml|variole.xml|chimpanze.xml");
         Matcher matcher = nomDeFichier.matcher(choixFichier);
         if (matcher.find()) {
             LecteurXml lecteurXml = new LecteurXml(choixFichier);

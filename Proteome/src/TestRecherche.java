@@ -9,7 +9,7 @@ public class TestRecherche {
 
 
     @Test
-    void testRecherche() {
+    void testRechercheProteine() {
         Proteome proteome = new Proteome();
 
         Proteines proteines1 = new Proteines("NTAS1_HUMAN");
@@ -26,5 +26,13 @@ public class TestRecherche {
         assertEquals(proteines2, proteome.rechercherNomCourtExact("Phospholipase A-2-activating protein").get(0));
         assertEquals(proteines3, proteome.rechercherNomCourtExact("NACC1_HUMAN").get(0));
         assertEquals(proteines4, proteome.rechercherNomCourtExact("Calcium-independent phospholipase A2-gamma").get(0));
+    }
+
+    @Test
+    void testRechercheSequence(){
+        Proteome proteome = new Proteome();
+        Proteines proteines1 = new Proteines("HD101_HUMAN");
+        assertEquals(proteines1, proteome.rechercherSequence("4G4T") );
+
     }
 }
